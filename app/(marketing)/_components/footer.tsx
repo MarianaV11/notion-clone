@@ -3,10 +3,12 @@ import { Logo } from "./logo";
 
 export const Footer = () => {
   return (
-    <div className="flex items-center w-full bg-background dark:bg-[#1F1F1F]">
-      <Logo />
-      <div className="md:ml-auto md:justify-end
-      gap-x-2 text-muted-foreground hidden md:block">
+    <div className="flex items-center w-full bg-indigo-500">
+      <Logo textColor="text-white" />
+      <div
+        className="md:ml-auto md:justify-end
+      gap-x-2 text-white hidden md:block"
+      >
         <Button variant="ghost" size="sm">
           Políticas de Privacidade
         </Button>

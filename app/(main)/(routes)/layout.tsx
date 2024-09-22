@@ -1,23 +1,21 @@
 "use client";
 
 import { useConvexAuth } from "convex/react";
-import React from "react";
-import { Spinner } from "../components/spinner";
 import { redirect } from "next/navigation";
-import Navigation from "./_components/navigation";
-import Image from "next/image";
+import React from "react";
+import { Spinner } from "../../components/spinner";
+import Navigation from "../_components/navigation";
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated, isLoading } = useConvexAuth();
 
   if (isLoading) {
     return (
-      <div className="h-full items-center flex justify-center flex-col gap-2
-                      bg-gradient-to-b from-primary-foreground to-secondary">
-        <div className="flex flex-col items-center">
-          {/* <Image src="/cloud.png" alt="cloud" width="150" height="150" /> */}
-          <p style={{ filter: "drop-shadow(1px 1px 1px gray)" }}>Carregando seus documentos!</p>
-        </div>
+      <div
+        className="h-full items-center flex justify-center flex-col gap-2
+                      bg-gradient-to-b from-primary-foreground to-secondary"
+      >
+        <div className="flex flex-col items-center"></div>
         <Spinner size="lg" />
       </div>
     );

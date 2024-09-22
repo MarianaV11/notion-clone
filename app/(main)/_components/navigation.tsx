@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts";
 import { cn } from "../../lib/utils";
+import { UserItem } from "./user-item";
 
 const Navigation = () => {
   const pathName = usePathname();
@@ -38,8 +39,8 @@ const Navigation = () => {
 
     isResizingRef.current = true;
 
-    document.addEventListener("mousemove", handleMouseMove); //Used to resize the sidebar
-    document.addEventListener("mouseup", handleMouseUp); //When mouse up, means that we finishes the resizing
+    document.addEventListener("mousemove", handleMouseMove); // Used to resize the sidebar
+    document.addEventListener("mouseup", handleMouseUp); // When mouse up, means that we finishes the resizing
   };
 
   const handleMouseMove = (event: MouseEvent) => {
@@ -69,7 +70,7 @@ const Navigation = () => {
   const resetWidth = () => {
     if (sidebarRef.current && navbarRef.current) {
       setIsCollapsed(false);
-      setIsResetting(false);
+      setIsResetting(true);
 
       sidebarRef.current.style.width = isMobile ? "100%" : "240px";
       navbarRef.current.style.setProperty(
@@ -116,7 +117,7 @@ const Navigation = () => {
           <ChevronLeft className="h-6 w-6" />
         </div>
         <div>
-          <p>Action items</p>
+          <UserItem />
         </div>
         <div className="mt-4">
           <p>Documents</p>
